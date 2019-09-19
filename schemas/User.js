@@ -4,7 +4,10 @@ const schema = new mongoose.Schema({
     name: String,
     login: String,
     password: String,
-    type: String
+    type: String,
+    status: String,
+    teamId: Number,
+    area: String
 })
 
 module.exports = mongoose.model('User', schema)
