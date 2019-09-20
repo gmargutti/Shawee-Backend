@@ -8,6 +8,7 @@ router.get('/generate', function(req, res, next) {
 
   const users = [
     new User({
+      userId: 1,
       name: 'Gustavo Margutti',
       login: 'gmargutti',
       password: '1234',
@@ -16,6 +17,7 @@ router.get('/generate', function(req, res, next) {
       teamId: 1
     }),
     new User({
+      userId: 2,
       name: 'Felipe Amalfi',
       login: 'famalfi',
       password: '1234',
@@ -23,6 +25,7 @@ router.get('/generate', function(req, res, next) {
       teamId: 1
     }),
     new User({
+      userId: 3,
       name: 'Rogerio Labat',
       login: 'rlabat',
       password: '1234',
@@ -30,6 +33,7 @@ router.get('/generate', function(req, res, next) {
       teamId: 1
     }),
     new User({
+      userId: 4,
       name: 'Rafael Brunner',
       login: 'rbrunner',
       password: '1234',
@@ -37,6 +41,7 @@ router.get('/generate', function(req, res, next) {
       teamId: 2,
     }),
     new User({
+      userId: 5,
       name: 'Eduardo Macedo',
       login: 'emacedo',
       password: '1234',
@@ -108,5 +113,29 @@ router.get('/generate', function(req, res, next) {
 
   res.json(obj)
 });
+
+router.get('/members', async function(req, res, next) {
+  const members = await User.find({
+    type: 'Member'
+  })
+  
+  res.json(members)
+})
+
+router.get('/mentors', async function (req, res, next) {
+  const mentors = await User.find({
+    type: 'Mentor'
+  })
+
+  res.json(mentors)
+})
+
+router.get('/:id', async function(req, res, next) {
+  const user = await User.find({
+    userId: req.params.id
+  })
+
+  res.json(user)
+})
 
 module.exports = router;

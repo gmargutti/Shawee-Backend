@@ -9,6 +9,8 @@ mongoose.connect(mongoConfig.url, { useNewUrlParser: true, useUnifiedTopology: t
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const teamsRouter = require('./routes/teams');
+const projectsRouter = require('./routes/projects');
 
 var app = express();
 
@@ -20,5 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/teams', teamsRouter);
+app.use('/projects', projectsRouter);
 
 module.exports = app;
