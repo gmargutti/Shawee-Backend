@@ -4,8 +4,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose')
 const mongoConfig = require('./config/mongo')
+require('dotenv').config()
 
-mongoose.connect(mongoConfig.url, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
