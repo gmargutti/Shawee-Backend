@@ -10,7 +10,7 @@ router.get('/generate', function(req, res, next) {
     new User({
       userId: 1,
       name: 'Gustavo Margutti',
-      login: 'gmargutti',
+      login: 'gustavo.margutti@hotmail.com',
       password: '1234',
       type: 'Member',
       teste: 'ok',
@@ -19,7 +19,7 @@ router.get('/generate', function(req, res, next) {
     new User({
       userId: 2,
       name: 'Felipe Amalfi',
-      login: 'famalfi',
+      login: 'felip.amalf@gmail.com',
       password: '1234',
       type: 'Member',
       teamId: 1
@@ -27,7 +27,7 @@ router.get('/generate', function(req, res, next) {
     new User({
       userId: 3,
       name: 'Rogerio Labat',
-      login: 'rlabat',
+      login: 'rogerio@crminformatica.com.br',
       password: '1234',
       type: 'Member',
       teamId: 1
@@ -35,7 +35,7 @@ router.get('/generate', function(req, res, next) {
     new User({
       userId: 4,
       name: 'Rafael Brunner',
-      login: 'rbrunner',
+      login: 'rbrunner@gmail.com',
       password: '1234',
       type: 'Member',
       teamId: 2,
@@ -43,7 +43,7 @@ router.get('/generate', function(req, res, next) {
     new User({
       userId: 5,
       name: 'Eduardo Macedo',
-      login: 'emacedo',
+      login: 'emacedo@gmail.com',
       password: '1234',
       type: 'Member',
       teamId: 2,
@@ -75,14 +75,14 @@ router.get('/generate', function(req, res, next) {
     }),
     new User({
       name: 'Megumi Secreto',
-      login: 'msecreto',
+      login: 'msecreto@gmail.com',
       password: '1234',
       area: 'Yakuza',
       type: 'Mentor'
     }),
     new User({
       name: 'Leticia Brandão',
-      login: 'lbrandao',
+      login: 'lbrandao@gmail.com',
       password: '1234',
       area: 'KS',
       type: 'Mentor'
