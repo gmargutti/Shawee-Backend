@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 const teamsRouter = require('./routes/teams');
 const projectsRouter = require('./routes/projects');
 const loginRouter = require('./routes/login');
+const areaRouter = require('./routes/areas');
 
 var app = express();
 
@@ -27,5 +28,6 @@ app.use('/users', usersRouter);
 app.use('/teams', teamsRouter);
 app.use('/projects', projectsRouter);
 app.use('/login', loginRouter);
+app.use('/areas', areaRouter);
 
 module.exports = app;

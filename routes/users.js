@@ -3,6 +3,7 @@ var router = express.Router();
 const User = require('../schemas/User');
 const Team = require('../schemas/Team');
 const Project = require('../schemas/Project');
+const Area = require('../schemas/Area')
 
 router.get('/generate', function(req, res, next) {
 
@@ -27,7 +28,7 @@ router.get('/generate', function(req, res, next) {
     new User({
       userId: 3,
       name: 'Rogerio Labat',
-      login: 'rogerio@crminformatica.com.br',
+      login: 'rogerio.labat@gmail.com',
       password: '1234',
       type: 'Member',
       teamId: 1
@@ -68,23 +69,23 @@ router.get('/generate', function(req, res, next) {
   const mentors = [
     new User({
       name: 'Roberto Santos',
-      login: 'rsantos',
+      login: 'rsantos@gmail.com',
       password: '1234',
-      area: 'Negócios',
+      areaId: 1,
       type: 'Mentor'
     }),
     new User({
       name: 'Megumi Secreto',
       login: 'msecreto@gmail.com',
       password: '1234',
-      area: 'Yakuza',
+      areaId: 1,
       type: 'Mentor'
     }),
     new User({
       name: 'Leticia Brandão',
       login: 'lbrandao@gmail.com',
       password: '1234',
-      area: 'KS',
+      areaId: 2,
       type: 'Mentor'
     })
   ]
@@ -102,11 +103,25 @@ router.get('/generate', function(req, res, next) {
     })
   ]
 
+  const areas = [
+    new Area({
+      areaId: 1,
+      name: 'Negócios',
+      description: 'Dúvidas referentes a Negócios',
+    }),
+    new Area({
+      areaId: 2,
+      name: 'Programação',
+      description: 'Dúvidas referentes a Programação',
+    })
+  ]
+
   const obj = {
     users,
     teams,
     mentors,
     projects,
+    areas,
   }
 
   Object.keys(obj).map(o => obj[o].map(item => item.save()))

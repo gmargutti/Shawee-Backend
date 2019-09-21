@@ -8,7 +8,7 @@ const schema = new mongoose.Schema({
     type: String,
     status: String,
     teamId: Number,
-    area: String
+    areaId: Number,
 })
 
 module.exports = mongoose.model('User', schema)
