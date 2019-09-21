@@ -14,6 +14,7 @@ const teamsRouter = require('./routes/teams');
 const projectsRouter = require('./routes/projects');
 const loginRouter = require('./routes/login');
 const areaRouter = require('./routes/areas');
+const queueRouter = require('./routes/queues');
 
 var app = express();
 
@@ -29,5 +30,6 @@ app.use('/teams', teamsRouter);
 app.use('/projects', projectsRouter);
 app.use('/login', loginRouter);
 app.use('/areas', areaRouter);
+app.use('/queues', queueRouter);
 
 module.exports = app;

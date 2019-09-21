@@ -4,6 +4,7 @@ const User = require('../schemas/User');
 const Team = require('../schemas/Team');
 const Project = require('../schemas/Project');
 const Area = require('../schemas/Area')
+const Queue = require('../schemas/Queue');
 
 router.get('/generate', function(req, res, next) {
 
@@ -116,12 +117,24 @@ router.get('/generate', function(req, res, next) {
     })
   ]
 
+  const queues = [
+    new Queue({
+      areaId: 1,
+      teamId: 1,
+    }),
+    new Queue({
+      areaId: 2,
+      teamId: 2,
+    }),
+  ]
+
   const obj = {
     users,
     teams,
     mentors,
     projects,
     areas,
+    queues,
   }
 
   Object.keys(obj).map(o => obj[o].map(item => item.save()))

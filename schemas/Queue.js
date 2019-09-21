@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
+    teamId: Number,
     areaId: Number,
-    name: String,
-    description: String,
+    reqAt: Date,
 })
 
-module.exports = mongoose.model('Area', schema)
+module.exports = mongoose.model('Queue', schema)
