@@ -13,4 +13,22 @@ router.get('/:areaId', async function(req, res, next) {
     })
 })
 
+router.post('/', async function(req, res, next) {
+    const { areaId, teamId } = req.body
+    const added = await new Queue({
+        areaId,
+        teamId,
+        reqAt: new Date(),
+    }).save()
+    res.json(added)
+})
+
+router.delete('/:queueId', async function(req, res, next) {
+    const { queueId } = req.params
+    const deleted = await Queue.findOneAndDelete({
+        queueId
+    })
+    return res.json(deleted)
+})
+
 module.exports = router;
