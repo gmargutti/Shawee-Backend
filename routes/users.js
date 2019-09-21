@@ -137,7 +137,7 @@ router.get('/generate', function(req, res, next) {
     queues,
   }
 
-  Object.keys(obj).map(o => obj[o].map(item => item.save()))
+  Object.keys(obj).map(o => obj[o].map(async (item) => item.save()))
 
   res.json(obj)
 });
