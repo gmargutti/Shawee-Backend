@@ -12,6 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const teamsRouter = require('./routes/teams');
 const projectsRouter = require('./routes/projects');
+const loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -25,5 +26,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/teams', teamsRouter);
 app.use('/projects', projectsRouter);
+app.use('/login', loginRouter);
 
 module.exports = app;
