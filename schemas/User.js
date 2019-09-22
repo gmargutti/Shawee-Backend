@@ -9,6 +9,7 @@ const schema = new mongoose.Schema({
     status: String,
     teamId: Number,
     areaId: Number,
+    position: String,
 })
 
 module.exports = mongoose.model('User', schema)
