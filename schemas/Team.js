@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const schema = new mongoose.Schema({
     teamId: Number,
     name: String,
-    status: String,
+    queued: Boolean,
     projectId: Number,
 })
 

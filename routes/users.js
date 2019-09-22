@@ -61,13 +61,13 @@ router.get('/generate', function(req, res, next) {
     new Team({
       teamId: 1,
       name: 'TheQueue',
-      status: 'Disponível',
+      queued: false,
       projectId: 1,
     }),
     new Team({
       teamId: 2,
       name: 'Unidos de Nova Iguaçu',
-      status: 'Disponível',
+      queued: false,
       projectId: 2,
     })
   ]
