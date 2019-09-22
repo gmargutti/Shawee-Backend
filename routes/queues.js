@@ -9,9 +9,14 @@ router.get('/:areaId', async function(req, res, next) {
     const items = await Queue.find({
         areaId
     }).sort({ queueId: 1 })
+    const promises = items.map((item) => new Promise(async (resolve, reject) => {
+        const team = await Team.findOne({ teamId: item.teamId })
+        resolve({ ...item._doc, team })
+    }))
+    const queue = await Promise.all(promises)
     res.json({
         count: items ? items.length : 0,
-        queue: items
+        queue
     })
 })
 
