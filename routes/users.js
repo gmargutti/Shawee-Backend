@@ -16,7 +16,9 @@ router.get('/generate', function(req, res, next) {
       password: '1234',
       type: 'Member',
       teste: 'ok',
-      teamId: 1
+      teamId: 1,
+      position: 'Fullstack Developer',
+      photo: 'https://scontent.fcgh10-1.fna.fbcdn.net/v/t1.0-9/598445_292118894241601_781212996_n.jpg?_nc_cat=101&_nc_oc=AQlaCB_JS3QMzzxoae3ua7HYMXekqKlzd4wDn1DRhNKRJU2H6aif7sRTZLrYiaNLt5M&_nc_ht=scontent.fcgh10-1.fna&oh=5a7900a133b925ea16904208fd76b2f5&oe=5DFB3439'
     }),
     new User({
       userId: 2,
@@ -35,6 +37,7 @@ router.get('/generate', function(req, res, next) {
       password: '1234',
       type: 'Member',
       teamId: 1,
+      position: 'CTO',
     }),
     new User({
       userId: 4,
