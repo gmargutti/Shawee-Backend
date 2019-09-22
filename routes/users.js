@@ -74,6 +74,7 @@ router.get('/generate', function(req, res, next) {
 
   const mentors = [
     new User({
+      userId: 6,
       name: 'Roberto Santos',
       login: 'rsantos@gmail.com',
       password: '1234',
@@ -81,6 +82,7 @@ router.get('/generate', function(req, res, next) {
       type: 'Mentor'
     }),
     new User({
+      userId: 7,
       name: 'Megumi Secreto',
       login: 'msecreto@gmail.com',
       password: '1234',
@@ -88,6 +90,7 @@ router.get('/generate', function(req, res, next) {
       type: 'Mentor'
     }),
     new User({
+      userId: 8,
       name: 'Leticia Brandão',
       login: 'lbrandao@gmail.com',
       password: '1234',
@@ -164,11 +167,22 @@ router.get('/mentors', async function (req, res, next) {
 })
 
 router.get('/:id', async function(req, res, next) {
-  const user = await User.find({
+  const user = await User.findOne({
     userId: req.params.id
   })
-
-  res.json(user)
+  if(user) {
+    const { _doc: obj }  = user
+    if(user.type === 'Member') {
+      const { teamId } = user
+      obj.team = await Team.findOne({ teamId })
+    } else {
+      const { areaId } = user
+      obj.area = await Area.findOne( { areaId })
+    }
+    res.json(obj)
+  } else {
+    res.status(404).json({ message: 'Usuário não encontrado' })
+  }
 })
 
 module.exports = router;
