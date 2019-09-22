@@ -18,7 +18,7 @@ router.post('/', async function(req, res, next) {
                 return;
             } else {
                 const { areaId } = user
-                const area = Area.findOne({ areaId })
+                const area = await Area.findOne({ areaId })
                 res.json({ user: { ...user._doc, area }})
                 return
             }
