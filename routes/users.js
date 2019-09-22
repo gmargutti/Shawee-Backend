@@ -32,7 +32,8 @@ router.get('/generate', function(req, res, next) {
       login: 'rogerio.labat@gmail.com',
       password: '1234',
       type: 'Member',
-      teamId: 1
+      teamId: 1,
+      position: "Mobile Engineer"
     }),
     new User({
       userId: 4,
