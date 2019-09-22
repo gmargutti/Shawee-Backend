@@ -87,7 +87,9 @@ router.get('/generate', function(req, res, next) {
       login: 'msecreto@gmail.com',
       password: '1234',
       areaId: 1,
-      type: 'Mentor'
+      type: 'Mentor',
+      photo: 'https://vignette.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440',
+      position: 'Business Manager'
     }),
     new User({
       userId: 8,
@@ -95,7 +97,9 @@ router.get('/generate', function(req, res, next) {
       login: 'lbrandao@gmail.com',
       password: '1234',
       areaId: 2,
-      type: 'Mentor'
+      type: 'Mentor',
+      photo: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/158.png',
+      position: 'Developer Advocate'
     })
   ]
 

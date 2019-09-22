@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const Queue = require('../schemas/Queue')
+const QueueController = require('../Controllers/QueueController')
 
 router.get('/:areaId', async function(req, res, next) {
     const { areaId } = req.params
     const items = await Queue.find({
         areaId
-    }).sort([reqAt])
+    }).sort({ queueId: 1 })
     res.json({
         count: items ? items.length : 0,
         queue: items
@@ -20,7 +21,8 @@ router.post('/', async function(req, res, next) {
         teamId,
         reqAt: new Date(),
     }).save()
-    res.json(added)
+    const position = await QueueController.getPosition(added.teamId)
+    res.json({ added, position })
 })
 
 router.delete('/:queueId', async function(req, res, next) {
@@ -28,7 +30,13 @@ router.delete('/:queueId', async function(req, res, next) {
     const deleted = await Queue.findOneAndDelete({
         queueId
     })
-    return res.json(deleted)
+    res.json(deleted)
+})
+
+router.get('/position/:teamId', async function(req, res, next) {
+    const { teamId } = req.params
+    const position = await QueueController.getPosition(teamId)
+    res.json(position)
 })
 
 module.exports = router;
