@@ -25,7 +25,8 @@ router.get('/generate', function(req, res, next) {
       password: '1234',
       type: 'Member',
       teamId: 1,
-      position: "Mobile Engineer"
+      position: "Mobile Engineer",
+      photo: 'https://scontent.fcgh10-1.fna.fbcdn.net/v/t1.0-9/16640952_1104706909638558_7931196132545005684_n.jpg?_nc_cat=108&_nc_oc=AQmQwYeBY2S9y8vDHccdrEjExZBedpcoy2n_raJadK13kWWixFRykqCQ77dL0lLXNsE&_nc_ht=scontent.fcgh10-1.fna&oh=47769ece50954b0e96b3f5f2b522f78b&oe=5DFCB2E3'
     }),
     new User({
       userId: 3,
