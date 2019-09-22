@@ -9,7 +9,7 @@ router.post('/', async function(req, res, next) {
     })
     if(user) {
         if(user.password === password) {
-            res.json({ message: 'Credenciais validadas com sucesso!' })
+            res.json({ user })
             return;
         }
         res.status(401).json({ message: 'Senha informada está incorreta!' })

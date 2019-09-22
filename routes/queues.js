@@ -6,7 +6,7 @@ router.get('/:areaId', async function(req, res, next) {
     const { areaId } = req.params
     const items = await Queue.find({
         areaId
-    })
+    }).sort([reqAt])
     res.json({
         count: items ? items.length : 0,
         queue: items
